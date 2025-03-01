@@ -12,17 +12,31 @@ module.exports = {
   },
   devtool: 'source-map', // Для удобства отладки
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json'], // Расширения файлов
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'], // Добавлено .jsx
   },
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/, // Обработка TypeScript файлов
-        use: 'ts-loader',
+        test: /\.(ts|tsx|jsx)$/, // Обработка TypeScript и JSX файлов
         exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader', // Используем babel-loader для обработки файлов
+            options: {
+              presets: [
+                '@babel/preset-env', // Для работы с новыми версиями JavaScript
+                '@babel/preset-react', // Для работы с JSX (React)
+                '@babel/preset-typescript', // Для работы с TypeScript
+              ],
+              plugins: [
+                '@babel/plugin-transform-runtime', // Оптимизация для повторяющихся функций (например, async/await)
+              ],
+            },
+          },
+        ],
       },
       {
-        test: /\.scss$/,
+        test: /\.scss$/, // Обработка SCSS файлов
         use: [
           'style-loader', // Вставляем стили в HTML
           'css-loader', // Обрабатываем CSS
@@ -47,7 +61,6 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './src/public/index.html',
-      // template: path.resolve(__dirname, 'public', 'index.html'), // Шаблон HTML
     }),
   ],
   devServer: {

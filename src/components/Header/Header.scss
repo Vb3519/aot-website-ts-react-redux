@@ -1,0 +1,62 @@
+$nav-elem-padding: 10px;
+$header-border: 1px solid #f39c12;
+
+.aot-site__header {
+  display: flex;
+  border-bottom: $header-border;
+  font-size: clamp(
+    0.5rem,
+    2.5vw,
+    1.2rem
+  ); /* min, предпочтительный, max размеры шрифта */
+}
+
+.aot-header__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #cf8918;
+  flex-basis: 10%;
+  border-right: $header-border;
+  padding: $nav-elem-padding;
+}
+.aot-header__nav-menu-wrapper {
+  display: flex;
+  flex-basis: 70%;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-menu-wrapper__nav {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+.nav-menu__elem {
+  padding: $nav-elem-padding;
+}
+
+.aot-header__bascet {
+  flex-basis: 20%;
+  padding: $nav-elem-padding;
+  color: #cf8918;
+  text-align: right;
+}
+
+.aot-header__bascet__logo {
+  font-size: 1.7rem;
+}
+
+.aot-header__link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: $nav-elem-padding;
+}
+
+a {
+  text-decoration: none;
+  color: #cf8918;
+}
