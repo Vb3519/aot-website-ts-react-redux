@@ -7,7 +7,7 @@ import './styles/index.scss';
 const appContainer = document.getElementById('root');
 
 if (appContainer) {
-  const root: any = ReactDOM.createRoot(appContainer);
+  const root: ReactDOM.Root = ReactDOM.createRoot(appContainer);
 
   root.render(<App />);
 }

@@ -13,7 +13,7 @@ const Header = () => {
       <nav className="aot-header__nav-menu-wrapper nav-menu-wrapper">
         <ul className="nav-menu-wrapper__nav nav-menu">
           <li className="nav-menu__elem">
-            <NavLink to="about">Об аниме</NavLink>
+            <NavLink to="about">О сериале</NavLink>
           </li>
           <li className="nav-menu__elem">
             <NavLink to="seasons">Сезоны</NavLink>
@@ -22,7 +22,7 @@ const Header = () => {
             <NavLink to="characters">Персонажи</NavLink>
           </li>
           <li className="nav-menu__elem">
-            <NavLink to="fan-store">Фан магазин</NavLink>
+            <NavLink to="fan-store">Магазин</NavLink>
           </li>
         </ul>
       </nav>
