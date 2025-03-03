@@ -3,12 +3,15 @@ import { NavLink } from 'react-router-dom';
 import { SlBasket } from 'react-icons/sl';
 
 import './Header.scss';
+import scoutLabelImage from '../../assets/images/scout-label.png';
 
 const Header = () => {
   return (
     <div className="aot-site__header aot-header">
       <div className="aot-header__logo">
-        <NavLink to=".">AoT</NavLink>
+        <NavLink to=".">
+          <img className="aot-header__logo__img" src={scoutLabelImage}></img>
+        </NavLink>
       </div>
       <nav className="aot-header__nav-menu-wrapper nav-menu-wrapper">
         <ul className="nav-menu-wrapper__nav nav-menu">

@@ -1,30 +1,50 @@
+$header_main_text_color: #cf8918;
+
 $nav-elem-padding: 10px;
 $header-border: 1px solid #f39c12;
 
+@mixin center_flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .aot-site__header {
   display: flex;
+  justify-content: space-between;
   border-bottom: $header-border;
   font-size: clamp(
     0.5rem,
     2.5vw,
     1.2rem
   ); /* min, предпочтительный, max размеры шрифта */
+  background: linear-gradient(135deg, #5e5d5d, #2f2f2f);
 }
 
 .aot-header__logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #cf8918;
-  flex-basis: 10%;
+  flex-basis: 5%;
   border-right: $header-border;
   padding: $nav-elem-padding;
 }
+
+.aot-header__logo > a {
+  @include center_flex;
+  color: $header_main_text_color;
+}
+
+.aot-header__logo:hover .aot-header__logo__img {
+  scale: 1.2;
+}
+
+.aot-header__logo__img {
+  width: 50px;
+  height: 50px;
+  transition: scale 0.5s;
+}
+
 .aot-header__nav-menu-wrapper {
-  display: flex;
+  @include center_flex;
   flex-basis: 70%;
-  justify-content: center;
-  align-items: center;
 }
 
 .nav-menu-wrapper__nav {
@@ -38,9 +58,11 @@ $header-border: 1px solid #f39c12;
 }
 
 .aot-header__bascet {
+  display: flex;
+  justify-content: center;
   flex-basis: 20%;
   padding: $nav-elem-padding;
-  color: #cf8918;
+  color: $header_main_text_color;
   text-align: right;
 }
 
@@ -58,5 +80,5 @@ $header-border: 1px solid #f39c12;
 
 a {
   text-decoration: none;
-  color: #cf8918;
+  color: $header_main_text_color;
 }
