@@ -1,7 +1,7 @@
-$header_main_text_color: #cf8918;
+$header_main_text_color: #e5e5e5;
 
-$nav-elem-padding: 10px;
-$header-border: 1px solid #f39c12;
+$nav-elem-padding: 0.5rem;
+$header-border: 2px solid gray;
 
 @mixin center_flex {
   display: flex;
@@ -12,24 +12,27 @@ $header-border: 1px solid #f39c12;
 .aot-site__header {
   display: flex;
   justify-content: space-between;
-  border-bottom: $header-border;
+  border-bottom: 3px solid rgba(128, 128, 128, 0.6);
   font-size: clamp(
     0.5rem,
     2.5vw,
     1.2rem
   ); /* min, предпочтительный, max размеры шрифта */
   background: linear-gradient(135deg, #5e5d5d, #2f2f2f);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
 }
 
 .aot-header__logo {
   flex-basis: 5%;
-  border-right: $header-border;
   padding: $nav-elem-padding;
 }
 
 .aot-header__logo > a {
   @include center_flex;
   color: $header_main_text_color;
+  padding-right: 0.5rem;
+  border-right: $header-border;
 }
 
 .aot-header__logo:hover .aot-header__logo__img {
@@ -50,7 +53,7 @@ $header-border: 1px solid #f39c12;
 .nav-menu-wrapper__nav {
   display: flex;
   list-style: none;
-  gap: 1rem;
+  gap: 3.5rem;
 }
 
 .nav-menu__elem {
@@ -59,11 +62,11 @@ $header-border: 1px solid #f39c12;
 
 .aot-header__bascet {
   display: flex;
-  justify-content: center;
-  flex-basis: 20%;
+  justify-content: flex-end;
   padding: $nav-elem-padding;
   color: $header_main_text_color;
   text-align: right;
+  margin-right: 1rem;
 }
 
 .aot-header__bascet__logo {
@@ -75,7 +78,8 @@ $header-border: 1px solid #f39c12;
   align-items: center;
   justify-content: flex-end;
   gap: 0.5rem;
-  padding: $nav-elem-padding;
+  padding-left: 1rem;
+  border-left: 2px solid rgb(128 128 128 / 50%);
 }
 
 a {

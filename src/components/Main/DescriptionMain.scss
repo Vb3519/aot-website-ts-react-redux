@@ -1,0 +1,180 @@
+@mixin center_flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$main_background_color: #333333;
+$main_text_color: #e5e5e5;
+$btn_and_season_descrip_text_size: clamp(1rem, 1vw, 2.5rem);
+
+.aot-site__main__descrip-block {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+  border-radius: 1rem;
+  background-color: $main_background_color;
+}
+
+.main-descrip-block__part {
+  @include center_flex;
+  gap: 0.5rem;
+  position: relative;
+  flex-basis: 33%;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.main-descrip-block__part.part-one {
+  position: relative;
+}
+
+.main-descrip-block__part__img-one {
+  width: 100%;
+  top: -35px;
+  left: -35px;
+  position: absolute;
+  opacity: 1;
+  z-index: 0;
+}
+
+.main-descrip-block__part.part-two {
+  max-width: 500px;
+  max-height: 720px;
+  // box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.main-descrip-block__part:has(span) {
+  align-items: end;
+}
+
+.main-descrip-block__part__img-two {
+  width: 100%;
+  opacity: 0.7;
+}
+
+.main-descrip-block__part__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: clamp(4rem, 12vw, 15rem); /* min, предп., max*/
+  opacity: 0.3;
+  color: gray;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.main-descrip-block__part__title {
+  width: 100%;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+  font-size: clamp(
+    1.5rem,
+    5vw,
+    7rem
+  ); /* min, предпочтительный, max размеры шрифта */
+  z-index: 1;
+  color: whitesmoke;
+  font-family: 'Rubik Distressed', system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.main-descrip-block__part__title.title-row2 {
+  text-align: right;
+}
+
+.elem-background-style-wrapper {
+  padding: 0.5rem;
+  background: linear-gradient(
+    45deg,
+    #333333 25%,
+    #666666 25%,
+    #666666 50%,
+    #333333 50%,
+    #333333 75%,
+    #666666 75%,
+    #666666 100%
+  );
+}
+
+.main-descrip-block__part__description {
+  padding: 0.5rem;
+  margin-top: auto;
+  font-size: $btn_and_season_descrip_text_size;
+  line-height: 1.3;
+  z-index: 1;
+  background-color: #333333;
+}
+
+.main-descrip-block__part__ratings-and-socials {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.ratings-and-socials__ratings__elem {
+  padding: 0.5rem;
+  background: linear-gradient(
+    45deg,
+    #333333 25%,
+    #666666 25%,
+    #666666 50%,
+    #333333 50%,
+    #333333 75%,
+    #666666 75%,
+    #666666 100%
+  );
+}
+
+.ratings-elem__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background-color: #333333;
+}
+
+.ratings-elem__inner__score {
+  font-size: clamp(1rem, 3vw, 5rem);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ratings-elem__inner__score__label {
+  font-size: clamp(1rem, 3vw, 2.5rem);
+  color: #cf8918;
+  transition: scale 0.5s;
+}
+
+.ratings-elem__inner__score__label:hover {
+  cursor: pointer;
+  scale: 1.2;
+}
+
+.ratings-and-socials__ratings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.ratings-and-socials__socials {
+  margin-top: auto;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.socials-label {
+  @include center_flex;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: scale 0.5s;
+}
+
+.socials-label:hover {
+  scale: 1.2;
+}
