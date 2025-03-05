@@ -3,17 +3,13 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import MainLayout from '../layouts/MainLayout';
 import Main from './Main/Main';
-import About from './Main/About/About';
-import Seasons from './Main/Seasons/Seasons';
-import Characters from './Main/Characters/Characters';
-import FanStore from './Main/FanStore/FanStore';
-import Basket from './Main/Basket/Basket';
+import About from './Other/About/About';
+import Seasons from './Other/Seasons/Seasons';
+import Characters from './Other/Characters/Characters';
+import FanStore from './Other/FanStore/FanStore';
+import Basket from './Other/Basket/Basket';
 
 const App = () => {
-  const myGreeting: string = 'Hey m8! ^_^';
-
-  console.log('greeting:', myGreeting);
-
   return (
     <BrowserRouter>
       <div className="aot-website">

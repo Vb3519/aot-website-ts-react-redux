@@ -2,8 +2,10 @@ import React from 'react';
 
 import { FaSquareXTwitter, FaSquareInstagram, FaAward } from 'react-icons/fa6';
 
-import mainPageLabel from '../../assets/images/main_page_label.png';
-import mainPageLabelTwo from '../../assets/images/main_page_label2.png';
+import './MainDescription.scss';
+
+import mainPageLabel from '../../../assets/images/main_page_label.png';
+import mainPageLabelTwo from '../../../assets/images/main_page_label2.png';
 
 const DescriptionMain = () => {
   return (

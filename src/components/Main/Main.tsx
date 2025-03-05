@@ -2,18 +2,17 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import './Main.scss';
-import './DescriptionMain.scss';
 
-import DescriptionMain from './DescriptionMain';
-import SeasonsMain from './SeasonsMain';
-import AboutMain from './AboutMain';
+import MainDescription from './MainDescription/MainDescription';
+import MainSeasons from './MainSeasons/MainSeasons';
+import MainAbout from './MainAbout/MainAbout';
 
 const Main = () => {
   return (
     <div className="aot-site__main">
-      <DescriptionMain />
-      <SeasonsMain />
-      <AboutMain />
+      <MainDescription />
+      <MainSeasons />
+      <MainAbout />
     </div>
   );
 };

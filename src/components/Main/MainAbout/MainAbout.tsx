@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './AboutMain.scss';
+import './MainAbout.scss';
 
-import battleSwordLabel from '../../assets/images/battle_sword_label.png';
+import battleSwordLabel from '../../../assets/images/battle_sword_label.png';
 
 const AboutMain = () => {
   return (
@@ -22,7 +22,7 @@ const AboutMain = () => {
           </div>
           <ul className="main-about-content-row__details about-details">
             <li className="about-details__elem">
-              <h4 className="about-details__elem__main-title">87 эпизодов</h4>
+              <h4 className="about-details__elem__main-title">89 эпизодов</h4>
               <h5 className="about-details__elem__sub-title">
                 сериал насчитывает 4 сезона
               </h5>
