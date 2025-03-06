@@ -3,10 +3,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 interface SeasonCardData {
+  key: number;
   title: string;
   img: string;
   imgDescription: string;
-  key: number;
 }
 
 const SeasonCard = (props: SeasonCardData) => {
