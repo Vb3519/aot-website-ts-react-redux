@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink, useParams, useNavigate } from 'react-router-dom';
 
 import seasonsData from '../../../data/seasonsData';
 
@@ -16,12 +17,17 @@ const SeasonsMain = () => {
         <div className="main-seasons-swiper__inner seasons-swiper-inner">
           {seasonsData.map((season, index) => {
             return (
-              <SeasonCard
+              <NavLink
+                className="seasons-swiper-inner__link"
+                to="seasons"
                 key={index}
-                title={season.title}
-                img={season.img}
-                imgDescription={season.imgDescription}
-              />
+              >
+                <SeasonCard
+                  title={season.title}
+                  img={season.img}
+                  imgDescription={season.imgDescription}
+                />
+              </NavLink>
             );
           })}
         </div>

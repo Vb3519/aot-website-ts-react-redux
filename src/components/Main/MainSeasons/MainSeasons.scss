@@ -44,6 +44,11 @@ $btn_and_season_descrip_text_size: clamp(1rem, 1vw, 2.5rem);
   gap: 3rem;
 }
 
+.seasons-swiper-inner__link {
+  height: 100%;
+  flex-basis: 50%;
+}
+
 .seasons-swiper-inner__elem {
   height: 100%;
   flex-basis: 50%;

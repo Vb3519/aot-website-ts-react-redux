@@ -13,13 +13,14 @@ const Seasons = () => {
       <div className="aot-site__seasons__list aot-seasons-list">
         {detailedSeasonsData.map((seasonDetails, index) => {
           return (
-            <DetailedSeasonCard
-              key={index}
-              title={seasonDetails.title}
-              img={seasonDetails.img}
-              imgDescription={seasonDetails.imgDescription}
-              seasonDescription={seasonDetails.seasonDescription}
-            />
+            <NavLink to="." key={index}>
+              <DetailedSeasonCard
+                title={seasonDetails.title}
+                img={seasonDetails.img}
+                imgDescription={seasonDetails.imgDescription}
+                seasonDescription={seasonDetails.seasonDescription}
+              />
+            </NavLink>
           );
         })}
       </div>

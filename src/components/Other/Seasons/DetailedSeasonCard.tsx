@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import SeasonCard from '../../Main/MainSeasons/SeasonCard';
 
 interface DetailedSeasonCardData {
-  key: number;
   title: string;
   img: string;
   imgDescription: string;
@@ -12,18 +11,18 @@ interface DetailedSeasonCardData {
 }
 
 const DetailedSeasonCard = (props: DetailedSeasonCardData) => {
-  const { title, img, imgDescription, seasonDescription, key } = props;
+  const { title, img, imgDescription, seasonDescription } = props;
 
   return (
     <div className="aot-site__seasons__list__wrapper">
-      <NavLink className="aot-seasons-list__elem" to=".">
+      <div className="aot-seasons-list__elem">
         <img
           className="aot-seasons-list__elem__img"
           src={img}
           alt={imgDescription}
         ></img>
         <p className="aot-seasons-list__elem__title">{title}</p>
-      </NavLink>
+      </div>
 
       <div className="aot-seasons-list__description">
         <p className="aot-seasons-list__description__inner">
