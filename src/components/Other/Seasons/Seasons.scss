@@ -41,8 +41,8 @@ $wrapper_background_color: linear-gradient(
   padding: 1rem;
 }
 
-.aot-site__seasons__list .aot-site__seasons__list__wrapper:nth-child(2),
-.aot-site__seasons__list .aot-site__seasons__list__wrapper:nth-child(4) {
+.aot-site__seasons__list a:nth-child(2),
+.aot-site__seasons__list a:nth-child(4) {
   padding-left: 1rem;
   border-left: 3px solid rgba(128, 128, 128, 0.2);
 }
