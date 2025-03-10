@@ -21,6 +21,7 @@ $descrip_text_size: clamp(0.7rem, 1.5vw, 1rem);
   border-radius: 0.5rem;
   box-shadow: $component_and_card_shadow;
   color: #e5e5e5;
+  min-height: 658px;
 }
 
 .aot-site__store__title {
@@ -35,6 +36,7 @@ $descrip_text_size: clamp(0.7rem, 1.5vw, 1rem);
   display: flex;
   gap: 2rem;
   margin-top: 2rem;
+  width: 100%;
 }
 
 .store-inner__filter {
@@ -164,12 +166,12 @@ $descrip_text_size: clamp(0.7rem, 1.5vw, 1rem);
 .product-card__more__add-to-basket:hover {
   cursor: pointer;
   scale: 1.1;
-  background-color: rgba(51, 51, 51, 0.9);
+  background-color: rgba(229, 229, 229, 0.9);
 }
 
 .product-card__more__add-to-basket:hover
   .product-card__more__add-to-basket__label {
-  color: green;
+  color: #333333;
 }
 
 .product-card__more__add-to-basket__label {
@@ -191,11 +193,15 @@ $descrip_text_size: clamp(0.7rem, 1.5vw, 1rem);
 .product-card__more__like:hover {
   cursor: pointer;
   scale: 1.1;
-  background-color: rgba(51, 51, 51, 0.9);
+  background-color: rgba(229, 229, 229, 0.9);
 }
 
 .product-card__more__like:hover .product-card__more__like__label {
-  color: rgb(212, 212, 1);
+  color: #333333;
+}
+
+.highlight-product-name {
+  background-color: gray;
 }
 
 @media (max-width: 1350px) {

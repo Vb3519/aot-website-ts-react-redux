@@ -12,13 +12,13 @@ import {
 
 import './Characters.scss';
 import CharacterCard from './CharacterCard';
+import EmptyCard from './EmptyCard';
 
 // Типы:
 import { Characters_Info } from '../../../redux/slices/charactersSlice';
 
 const Characters = () => {
   const charactersData: Characters_Info[] = useSelector(selectCharacters);
-  console.log('charactersData:', charactersData);
 
   const characterNameFilter: string = useSelector(selectCharacterNameFilter);
   const onlyFavouriteFilter: boolean = useSelector(selectOnlyFavouriteFilter);
@@ -132,19 +132,12 @@ const Characters = () => {
               );
             })
           ) : (
-            <li className="characters-list__empty-card">
-              <div className="characters-list__empty-card__inner empty-card__inner">
-                <h2 className="empty-card__inner__title">
-                  Вы ввели некорректное имя персонажа, либо в данный момент у
-                  Вас нет любимых персонажей.
-                </h2>
-                <FaRegQuestionCircle className="empty-card__inner__label" />
-                <p className="empty-card__inner__decription">
-                  Вы можете выбрать любого персонажа, нажав на зеленый флажок
-                  рядом с его именем.
-                </p>
-              </div>
-            </li>
+            <EmptyCard
+              title="Вы ввели некорректное имя персонажа, либо в данный момент у Вас нет
+          любимых персонажей."
+              description="Вы можете выбрать любого персонажа, нажав на зеленый флажок рядом с
+          его именем."
+            />
           )}
         </ul>
       </div>
@@ -153,25 +146,3 @@ const Characters = () => {
 };
 
 export default Characters;
-
-// const highLightNameFilterMatch = (
-//   characterName: string,
-//   nameFilter: string
-// ) => {
-//   console.log('nameFilter:', nameFilter);
-//   // if (!nameFilter) return;
-
-//   const regex = new RegExp(`(${nameFilter})`, 'gi'); // 'gi' - опции (g - global; i - case insensitive (регистр неважен))
-
-//   return characterName.split(regex).map((substring, i) => {
-//     if (substring.toLowerCase() === nameFilter.toLowerCase().trim()) {
-//       return (
-//         <span key={i} className="highlight-character-name">
-//           {substring}
-//         </span>
-//       );
-//     }
-
-//     return substring;
-//   });
-// };

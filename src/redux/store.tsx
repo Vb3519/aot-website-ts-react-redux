@@ -1,11 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 import characterReducer from '../redux/slices/charactersSlice';
-import filterReducer from '../redux/slices/charactersFilterSlice';
+import charactersFilterReducer from '../redux/slices/charactersFilterSlice';
+import productsReducer from '../redux/slices/productsSlice';
+import productsFilterReducer from '../redux/slices/productsFilterSlice';
 
 const store = configureStore({
   reducer: {
     characters: characterReducer,
-    charactersFilter: filterReducer,
+    charactersFilter: charactersFilterReducer,
+
+    products: productsReducer,
+    productsFilter: productsFilterReducer,
   },
 });
 

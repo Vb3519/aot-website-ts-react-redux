@@ -1,10 +1,119 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import './FanStore.scss';
-import storeProductsData from '../../../data/storeProductsData';
 import ProductCard from './ProductCard';
+import EmptyCard from '../Characters/EmptyCard';
+import { selectProducts } from '../../../redux/slices/productsSlice';
+import {
+  setProductName,
+  setOnlyFavourite,
+  setMinPriceValue,
+  setMaxPriceValue,
+  resetProductsFilters,
+  selectProductNameFilter,
+  selectOnlyFavouriteFilter,
+  selectMinPriceFilter,
+  selectMaxPriceFilter,
+} from '../../../redux/slices/productsFilterSlice';
+
+// Типы:
+import { Product_Info } from '../../../redux/slices/productsSlice';
 
 const FanStore = () => {
+  // Список товаров из Redux-слайса:
+  const storeProductsData: Product_Info[] = useSelector(selectProducts);
+
+  const dispatch = useDispatch();
+
+  // ФИЛЬТРЫ:
+  const productNameFilter: string = useSelector(selectProductNameFilter);
+  const onlyFavouriteFilter: boolean = useSelector(selectOnlyFavouriteFilter);
+  const minPriceValueFilter: number = useSelector(selectMinPriceFilter);
+  const maxPriceValueFilter: number = useSelector(selectMaxPriceFilter);
+
+  // ДЕЙСТВИЯ:
+  // Фильтр по названию товара:
+  const handleProductNameFilterChange = (
+    event: ChangeEvent<HTMLInputElement>
+  ) => {
+    const { target } = event;
+
+    dispatch(setProductName(target.value));
+  };
+
+  // Фильтр только "избранное":
+  const handleOnlyFavouriteFilterChange = (
+    event: ChangeEvent<HTMLInputElement>
+  ) => {
+    const target = event.target;
+
+    dispatch(setOnlyFavourite(target.checked));
+  };
+
+  // Фильтр по минимальной цене:
+  const handleMinPrivceValueFilterChange = (
+    event: ChangeEvent<HTMLInputElement>
+  ) => {
+    const { target } = event;
+
+    dispatch(setMinPriceValue(target.value));
+  };
+
+  // Фильтр по максимальной цене:
+  const handleMaxPriceValueFilterChange = (
+    event: ChangeEvent<HTMLInputElement>
+  ) => {
+    const { target } = event;
+
+    dispatch(setMaxPriceValue(target.value));
+  };
+
+  // Ресет фильтров:
+  const handleResetProductFilters = () => {
+    dispatch(resetProductsFilters());
+  };
+
+  const filterStoreProductsData = () => {
+    return storeProductsData.filter((productInfo) => {
+      const matchesName: boolean = productInfo.name
+        .toLowerCase()
+        .includes(productNameFilter.toLowerCase().trim());
+
+      const matchesFavourite: boolean = onlyFavouriteFilter
+        ? productInfo.isFavourite
+        : true;
+
+      // productInfo.price это срока, например: '1850 Руб.'
+      const matchesPriceFilter =
+        Number(productInfo.price.slice(0, productInfo.price.indexOf(' '))) >=
+          minPriceValueFilter &&
+        Number(productInfo.price.slice(0, productInfo.price.indexOf(' '))) <=
+          maxPriceValueFilter;
+
+      return matchesName && matchesFavourite && matchesPriceFilter;
+    });
+  };
+
+  const hightlightProductNameFilter = (
+    productText: string,
+    filterText: string
+  ) => {
+    const regex = new RegExp(`(${filterText})`, 'gi');
+
+    return productText.split(regex).map((substring, i) => {
+      return substring.toLowerCase() === filterText.toLowerCase().trim() ? (
+        <span key={i} className="highlight-product-name">
+          {substring}
+        </span>
+      ) : (
+        substring
+      );
+    });
+  };
+
+  const filteredStoreProductsData: Product_Info[] = filterStoreProductsData();
+
   return (
     <section className="aot-site__store">
       <h1 className="aot-site__store__title">Магазин</h1>
@@ -15,9 +124,16 @@ const FanStore = () => {
             type="text"
             placeholder="Наименование товара..."
             maxLength={50}
+            onChange={handleProductNameFilterChange}
+            value={productNameFilter}
           />
           <label className="store-inner__filter__favourite-products favourite-products">
-            <input className="favourite-products__checkbox" type="checkbox" />
+            <input
+              onChange={handleOnlyFavouriteFilterChange}
+              className="favourite-products__checkbox"
+              type="checkbox"
+              checked={onlyFavouriteFilter}
+            />
             Избранное
           </label>
 
@@ -27,47 +143,67 @@ const FanStore = () => {
             </label>
             <div className="store-price__price-range price-range-container">
               <input
+                onChange={handleMinPrivceValueFilterChange}
                 className="price-range-container__price-filter min-price-filter"
+                value={minPriceValueFilter}
                 type="range"
                 min="0"
-                max="5000"
+                max="2500"
                 step="100"
-                value="0"
               />
               <span className="price-range-container__price-value min-price-value">
-                0
+                {minPriceValueFilter}
               </span>
             </div>
             <div className="store-price__price-range price-range-container">
               <input
+                onChange={handleMaxPriceValueFilterChange}
                 className="price-range-container__price-filter max-price-filter"
+                value={maxPriceValueFilter}
                 type="range"
                 min="0"
-                max="5000"
+                max="2500"
                 step="100"
-                value="5000"
               />
               <span className="price-range-container__price-value max-price-value">
-                5000
+                {maxPriceValueFilter}
               </span>
             </div>
           </div>
-          <button className="store-inner__filter__reset-btn" type="button">
+          <button
+            onClick={handleResetProductFilters}
+            className="store-inner__filter__reset-btn"
+            type="button"
+          >
             Сбросить фильтры
           </button>
         </form>
         <div className="store-inner__products">
           <ul className="store-inner__products__list store-products-list">
-            {storeProductsData.map((product, index) => {
-              return (
-                <ProductCard
-                  key={index}
-                  img={product.img}
-                  name={product.name}
-                  price={product.price}
-                />
-              );
-            })}
+            {filteredStoreProductsData.length > 0 ? (
+              filteredStoreProductsData.map((product, index) => {
+                return (
+                  <ProductCard
+                    id={product.id}
+                    key={index}
+                    img={product.img}
+                    name={hightlightProductNameFilter(
+                      product.name,
+                      productNameFilter
+                    )}
+                    price={product.price}
+                    isAddedToCart={product.isAddedToCart}
+                    isFavourite={product.isFavourite}
+                  />
+                );
+              })
+            ) : (
+              <EmptyCard
+                title="Вы ввели некорректное наименование товара, либо в данный момент у Вас нет
+          товаров в разделе 'избранное'."
+                description="Вы можете добавить любой товар в корзину или в избранное, нажав на соответствующий значок в нижней части карточки товара."
+              />
+            )}
           </ul>
         </div>
       </div>
@@ -76,22 +212,3 @@ const FanStore = () => {
 };
 
 export default FanStore;
-
-{
-  /* <li className="store-products-list__card product-card">
-  <img className="product-card__img" src={product_img_example}></img>
-  <h2 className="product-card__name">Product Name Example</h2>
-  <div className="product-card__more">
-    <p className="product-card__more__price">5 000 Руб.</p>
-    <div
-      className="product-card__more__add-to-basket"
-      title="Добавить в корзину"
-    >
-      <RiShoppingBasket2Line className="product-card__more__add-to-basket__label" />
-    </div>
-    <div className="product-card__more__like" title="В избранное">
-      <FaRegStar />
-    </div>
-  </div>
-</li>; */
-}

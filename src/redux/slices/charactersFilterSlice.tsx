@@ -46,9 +46,6 @@ const charactersFilterSlice = createSlice({
   },
 });
 
-console.log('charactersFilterSlice:', charactersFilterSlice);
-console.log('actions:', charactersFilterSlice.actions);
-
 // ДЕЙСТВИЯ:
 export const { setCharacterName, setOnlyFavourite, resetFilters } =
   charactersFilterSlice.actions;
