@@ -99,6 +99,8 @@ const FanStore = () => {
     productText: string,
     filterText: string
   ) => {
+    if (!filterText) return productText;
+
     const regex = new RegExp(`(${filterText})`, 'gi');
 
     return productText.split(regex).map((substring, i) => {
@@ -152,7 +154,7 @@ const FanStore = () => {
                 step="100"
               />
               <span className="price-range-container__price-value min-price-value">
-                {minPriceValueFilter}
+                {minPriceValueFilter} Руб.
               </span>
             </div>
             <div className="store-price__price-range price-range-container">
@@ -166,7 +168,7 @@ const FanStore = () => {
                 step="100"
               />
               <span className="price-range-container__price-value max-price-value">
-                {maxPriceValueFilter}
+                {maxPriceValueFilter} Руб.
               </span>
             </div>
           </div>

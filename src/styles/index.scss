@@ -6,6 +6,7 @@ $primary_background_color: #333333;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
   list-style: none;
+  user-select: none;
 }
 
 .aot-website {
@@ -13,9 +14,6 @@ $primary_background_color: #333333;
   background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
   height: 100vh;
   overflow-y: auto;
-  // background: linear-gradient(135deg, #217e64, #443d74);
-  // background: linear-gradient(135deg, #505755, #0d0b1a);
-  // background: linear-gradient(135deg, #09190a, #403939);
 }
 
 @media (min-width: 768px) {

@@ -11,6 +11,7 @@ const storeProductsData = [
     price: '370 Руб.',
     isAddedToCart: false,
     isFavourite: false,
+    value: 1,
   },
   {
     id: uuidv4(),
@@ -19,6 +20,7 @@ const storeProductsData = [
     price: '250 Руб.',
     isAddedToCart: false,
     isFavourite: false,
+    value: 1,
   },
   {
     id: uuidv4(),
@@ -27,6 +29,7 @@ const storeProductsData = [
     price: '1140 Руб.',
     isAddedToCart: false,
     isFavourite: false,
+    value: 1,
   },
   {
     id: uuidv4(),
@@ -35,6 +38,7 @@ const storeProductsData = [
     price: '270 Руб.',
     isAddedToCart: false,
     isFavourite: false,
+    value: 1,
   },
   {
     id: uuidv4(),
@@ -43,6 +47,7 @@ const storeProductsData = [
     price: '560 Руб.',
     isAddedToCart: false,
     isFavourite: false,
+    value: 1,
   },
   {
     id: uuidv4(),
@@ -51,6 +56,7 @@ const storeProductsData = [
     price: '560 Руб.',
     isAddedToCart: false,
     isFavourite: false,
+    value: 1,
   },
 
   {
@@ -60,6 +66,7 @@ const storeProductsData = [
     price: '1850 Руб.',
     isAddedToCart: false,
     isFavourite: false,
+    value: 1,
   },
   {
     id: uuidv4(),
@@ -68,6 +75,7 @@ const storeProductsData = [
     price: '671 Руб.',
     isAddedToCart: false,
     isFavourite: false,
+    value: 1,
   },
 ];
 

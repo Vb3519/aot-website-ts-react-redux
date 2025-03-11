@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RiShoppingBasket2Line, RiShoppingBasket2Fill } from 'react-icons/ri';
 import { FaRegStar, FaStar } from 'react-icons/fa';
-import { useEffect } from 'react';
 
 import {
   addToCart,
@@ -24,10 +23,6 @@ const ProductCard = (props: ProductCard_info) => {
 
   // Добавить товар в корзину покупок:
   const handleAddToCart = (id: string) => {
-    if (isAddedToCart) {
-      alert('Данный товар уже добавлен в корзину');
-      return;
-    }
     dispatch(addToCart(id));
   };
 

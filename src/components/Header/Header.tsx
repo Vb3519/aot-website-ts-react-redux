@@ -1,11 +1,26 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { SlBasket } from 'react-icons/sl';
+import { useSelector } from 'react-redux';
 
 import './Header.scss';
+import { selectProducts } from '../../redux/slices/productsSlice';
 import scoutLabelImage from '../../assets/images/scout-label.png';
 
+// Типы:
+import { Product_Info } from '../../redux/slices/productsSlice';
+
 const Header = () => {
+  const products: Product_Info[] = useSelector(selectProducts);
+
+  const filterAddedToCartProducts = (): Product_Info[] => {
+    return products.filter((productInfo) => {
+      return productInfo.isAddedToCart ? productInfo : '';
+    });
+  };
+
+  const filteredProducts: Product_Info[] = filterAddedToCartProducts();
+
   return (
     <div className="aot-site__header aot-header">
       <div className="aot-header__logo">
@@ -31,7 +46,19 @@ const Header = () => {
       </nav>
       <div className="aot-header__bascet">
         <NavLink className="aot-header__link" to="store-basket">
-          Корзина <SlBasket className="aot-header__bascet__logo" />
+          {filteredProducts.length > 0 ? (
+            <>
+              Корзина
+              <span className="aot-header__link__bascet-label">
+                {filteredProducts.length}
+              </span>
+              <SlBasket className="aot-header__bascet__logo" />
+            </>
+          ) : (
+            <>
+              Корзина <SlBasket className="aot-header__bascet__logo" />
+            </>
+          )}
         </NavLink>
       </div>
     </div>
@@ -39,3 +66,5 @@ const Header = () => {
 };
 
 export default Header;
+
+// Корзина <SlBasket className="aot-header__bascet__logo" />

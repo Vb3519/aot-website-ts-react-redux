@@ -13,6 +13,7 @@ export interface Product_Info {
   price: string;
   isAddedToCart: boolean;
   isFavourite: boolean;
+  value: number;
 }
 
 const initialState: Product_Info[] = storeProductsData;
@@ -21,26 +22,57 @@ const productsSlice = createSlice({
   name: 'products',
   initialState: initialState,
   reducers: {
+    // Отличие названий в двух функциях (add, delete), но функционал одинаков - свичер:
     addToCart: (state, action) => {
-      return state.map((product) => {
-        return product.id === action.payload
-          ? { ...product, isAddedToCart: !product.isAddedToCart }
-          : product;
+      return state.map((productInfo) => {
+        return productInfo.id === action.payload
+          ? { ...productInfo, isAddedToCart: !productInfo.isAddedToCart }
+          : productInfo;
+      });
+    },
+
+    deleteFromCart: (state, action) => {
+      return state.map((productInfo) => {
+        return productInfo.id === action.payload
+          ? { ...productInfo, isAddedToCart: !productInfo.isAddedToCart }
+          : productInfo;
       });
     },
 
     toggleFavourite: (state, action) => {
-      return state.map((product) => {
-        return product.id === action.payload
-          ? { ...product, isFavourite: !product.isFavourite }
-          : product;
+      return state.map((productInfo) => {
+        return productInfo.id === action.payload
+          ? { ...productInfo, isFavourite: !productInfo.isFavourite }
+          : productInfo;
+      });
+    },
+
+    incrementValue: (state, action) => {
+      return state.map((productInfo) => {
+        return productInfo.isAddedToCart && productInfo.id === action.payload
+          ? { ...productInfo, value: productInfo.value + 1 }
+          : productInfo;
+      });
+    },
+
+    decrementValue: (state, action) => {
+      return state.map((productInfo) => {
+        return productInfo.isAddedToCart && productInfo.id === action.payload
+          ? { ...productInfo, value: productInfo.value - 1 }
+          : productInfo;
       });
     },
   },
 });
 
 // Действия:
-export const { addToCart, toggleFavourite } = productsSlice.actions;
+export const {
+  addToCart,
+  deleteFromCart,
+  toggleFavourite,
+  incrementValue,
+  decrementValue,
+} = productsSlice.actions;
 
 // Состояние (часть состояния):
 export const selectProducts = (state: Products_State): Product_Info[] =>

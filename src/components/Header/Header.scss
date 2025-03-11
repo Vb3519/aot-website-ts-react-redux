@@ -74,12 +74,28 @@ $header-border: 2px solid gray;
 }
 
 .aot-header__link {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 0.5rem;
   padding-left: 1rem;
   border-left: 2px solid rgb(128 128 128 / 50%);
+}
+
+.aot-header__link__bascet-label {
+  position: absolute;
+  top: 7px;
+  right: -10px;
+  color: #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(128, 128, 128, 1);
+  width: 20px;
+  border-radius: 50%;
+  height: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 a {

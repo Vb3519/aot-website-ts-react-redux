@@ -65,6 +65,8 @@ const Characters = () => {
 
   // Подсветка текста по которому идет фильтр имен персонажей:
   const highLightNameFilter = (characterName: string, filterText: string) => {
+    if (!filterText) return characterName;
+
     const regex = new RegExp(`(${filterText})`, 'gi');
 
     return characterName.split(regex).map((substring, i) => {
