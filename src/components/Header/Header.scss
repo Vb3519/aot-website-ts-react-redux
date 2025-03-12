@@ -60,6 +60,11 @@ $header-border: 2px solid gray;
   padding: $nav-elem-padding;
 }
 
+.nav-menu__elem:hover {
+  text-decoration: underline;
+  color: #e5e5e5;
+}
+
 .aot-header__bascet {
   display: flex;
   justify-content: flex-end;

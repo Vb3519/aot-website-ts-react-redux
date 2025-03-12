@@ -13,7 +13,7 @@ const Seasons = () => {
       <div className="aot-site__seasons__list aot-seasons-list">
         {detailedSeasonsData.map((seasonDetails, index) => {
           return (
-            <NavLink to="." key={index}>
+            <NavLink to={`/seasons/${seasonDetails.seasonSlug}`} key={index}>
               <DetailedSeasonCard
                 title={seasonDetails.title}
                 img={seasonDetails.img}

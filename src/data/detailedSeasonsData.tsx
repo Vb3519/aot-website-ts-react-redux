@@ -1,6 +1,14 @@
 import seasonOnePoster from '../assets/images/season_1_poster.png';
 import seasonTwoPoster from '../assets/images/season_2_poster.png';
 
+const seasonImages = require.context(
+  '../assets/images/seasons',
+  false,
+  /\.png$/
+);
+const seasonsImgsPaths = seasonImages.keys().map(seasonImages);
+console.log('seasonsImgsPaths:', seasonsImgsPaths);
+
 const detailedSeasonsData = [
   {
     title: 'Вторжение титанов (1 сезон)',
@@ -11,6 +19,12 @@ const detailedSeasonsData = [
         Троица живет в средневековом городе Шиганшине, окруженном огромной стеной,
          защищающей от титанов — безумных плотоядных великанов, пожирающих людей.`,
     seasonSlug: 'season-one',
+    seasonImgs: [
+      seasonsImgsPaths[0].default,
+      seasonsImgsPaths[1].default,
+      seasonsImgsPaths[2].default,
+      seasonsImgsPaths[3].default,
+    ],
   },
   {
     title: 'Тайна стен (2 сезон)',
@@ -20,6 +34,12 @@ const detailedSeasonsData = [
      Во время очередной атаки выясняется, что среди разведчиков есть враги под прикрытием.
       После неожиданного вторжения титанов за стену, герои сталкиваются с новым, более страшным противником...`,
     seasonSlug: 'season-two',
+    seasonImgs: [
+      seasonsImgsPaths[4].default,
+      seasonsImgsPaths[5].default,
+      seasonsImgsPaths[6].default,
+      seasonsImgsPaths[7].default,
+    ],
   },
   {
     title: 'Битва за Шиганшину (3 сезон)',
@@ -30,6 +50,12 @@ const detailedSeasonsData = [
       Главные герои — Эрен, Микаса и Армин — сталкиваются с новыми врагами, пытаясь раскрыть секреты, скрывающиеся за тем, что происходит в королевстве.
        С середины сезона начинается самая масштабная битва сериала.`,
     seasonSlug: 'season-three',
+    seasonImgs: [
+      seasonsImgsPaths[8].default,
+      seasonsImgsPaths[9].default,
+      seasonsImgsPaths[10].default,
+      seasonsImgsPaths[11].default,
+    ],
   },
   {
     title: 'По ту сторону моря... (4 сезон)',
@@ -38,6 +64,12 @@ const detailedSeasonsData = [
     seasonDescription: `Все на самом деле не то, чем кажется. Четвертый сезон Атаки титанов кардинально меняет фокус, переворачивая все с ног на голову.
      Здесь зрители знакомятся с новыми персонажами, главные герои столкнутся с другими угрозами, которые угрожают миру.`,
     seasonSlug: 'season-four',
+    seasonImgs: [
+      seasonsImgsPaths[12].default,
+      seasonsImgsPaths[13].default,
+      seasonsImgsPaths[14].default,
+      seasonsImgsPaths[15].default,
+    ],
   },
 ];
 

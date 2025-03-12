@@ -108,8 +108,93 @@ $btn_and_season_descrip_text_size: clamp(1rem, 1vw, 2.5rem);
   background-color: gray;
 }
 
+/* КОМПОНЕНТ С КАРТИНКАМИ ВЫБРАННОГО СЕЗОНА: */
+/* ------------------------------------------------------------------------ */
+.aot-site__season-details {
+  height: 100%;
+  display: flex;
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: #333333;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  color: #e5e5e5;
+}
+
+.season-details-wrapper__inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.season-details-inner__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.season-details-title {
+  text-align: left;
+  width: 100%;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid rgba(128, 128, 128, 0.2);
+}
+
+.season-details-title__text {
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+.season-details-title__text,
+.season-details-title__btn {
+  font-size: 1.1rem;
+}
+
+.season-details-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: auto;
+}
+
+.season-details-images__img {
+  display: flex;
+  padding: 1rem;
+  background: linear-gradient(
+    45deg,
+    #333333 25%,
+    #666666 25%,
+    #666666 50%,
+    #333333 50%,
+    #333333 75%,
+    #666666 75%,
+    #666666 100%
+  );
+  max-width: 575px;
+}
+
+.season-details-images__img__inner {
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .season-details-images {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .seasons-swiper-inner__elem__img {
     padding: 0.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .season-details-images__img {
+    padding: 0.5rem;
+  }
+
+  .season-details-title__text,
+  .season-details-title__btn {
+    font-size: 0.9rem;
   }
 }

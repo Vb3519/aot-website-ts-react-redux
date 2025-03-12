@@ -1,12 +1,12 @@
 import React from 'react';
-import { NavLink, useParams, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import seasonsData from '../../../data/seasonsData';
 
 import './MainSeasons.scss';
 import SeasonCard from './SeasonCard';
 
-const SeasonsMain = () => {
+const MainSeasons = () => {
   return (
     <section className="aot-site__main__seasons-block main-seasons-block">
       <div className="main-seasons-block__title-row">
@@ -21,7 +21,7 @@ const SeasonsMain = () => {
             return (
               <NavLink
                 className="seasons-swiper-inner__link"
-                to="seasons"
+                to={`/seasons/${season.seasonSlug}`}
                 key={index}
               >
                 <SeasonCard
@@ -38,4 +38,4 @@ const SeasonsMain = () => {
   );
 };
 
-export default SeasonsMain;
+export default MainSeasons;

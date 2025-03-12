@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
 
 import MainLayout from '../layouts/MainLayout';
 import Main from './Main/Main';
@@ -8,12 +8,11 @@ import Seasons from './Other/Seasons/Seasons';
 import Characters from './Other/Characters/Characters';
 import FanStore from './Other/FanStore/FanStore';
 import Basket from './Other/Basket/Basket';
-
-import SeasonCard from './Main/MainSeasons/SeasonCard';
+import SeasonDetails from './Main/MainSeasons/SeasonDetails';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="aot-website">
         <Routes>
           <Route path="/" element={<MainLayout />}>
@@ -21,6 +20,7 @@ const App = () => {
             <Route path="about" element={<About />} />
 
             <Route path="seasons" element={<Seasons />} />
+            <Route path="seasons/:seasonSlug" element={<SeasonDetails />} />
 
             <Route path="characters" element={<Characters />} />
             <Route path="fan-store" element={<FanStore />} />
@@ -28,7 +28,7 @@ const App = () => {
           </Route>
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

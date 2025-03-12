@@ -9,6 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js', // Для кэширования
     clean: true, // Очистка dist перед сборкой
+    publicPath: '/',
   },
   devtool: 'source-map', // Для удобства отладки
   resolve: {
