@@ -12,7 +12,7 @@ import SeasonDetails from './Main/MainSeasons/SeasonDetails';
 
 const App = () => {
   return (
-    <HashRouter basename="/aot-website-ts-react-redux">
+    <HashRouter>
       <div className="aot-website">
         <Routes>
           <Route path="/" element={<MainLayout />}>
