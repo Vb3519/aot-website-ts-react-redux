@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -9,7 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js', // Для кэширования
     clean: true, // Очистка dist перед сборкой
-    publicPath: '/',
+    publicPath: '/aot-website-ts-react-redux/',
   },
   devtool: 'source-map', // Для удобства отладки
   resolve: {
@@ -39,9 +40,12 @@ module.exports = {
       {
         test: /\.scss$/, // Обработка SCSS файлов
         use: [
-          'style-loader', // Вставляем стили в HTML
-          'css-loader', // Обрабатываем CSS
-          'sass-loader', // Обрабатываем SCSS
+          // 'style-loader', // Вставляем стили в HTML
+          // 'css-loader', // Обрабатываем CSS
+          // 'sass-loader', // Обрабатываем SCSS
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
         ],
       },
       {
@@ -63,6 +67,9 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './src/public/index.html',
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css',
     }),
   ],
   devServer: {
