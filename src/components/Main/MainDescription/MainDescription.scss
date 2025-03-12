@@ -58,7 +58,7 @@ $btn_and_season_descrip_text_size: clamp(0.7rem, 1.5vw, 1.2rem);
   position: absolute;
   top: 0;
   left: 0;
-  font-size: clamp(4rem, 12vw, 15rem); /* min, предп., max*/
+  font-size: clamp(4rem, 11vw, 15rem); /* min, предп., max*/
   opacity: 0.3;
   color: gray;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -84,6 +84,7 @@ $btn_and_season_descrip_text_size: clamp(0.7rem, 1.5vw, 1.2rem);
 }
 
 .elem-background-style-wrapper {
+  z-index: 1;
   padding: 0.5rem;
   background: linear-gradient(
     45deg,
@@ -100,7 +101,7 @@ $btn_and_season_descrip_text_size: clamp(0.7rem, 1.5vw, 1.2rem);
 .main-descrip-block__part__description {
   padding: 0.5rem;
   margin-top: auto;
-  font-size: $btn_and_season_descrip_text_size;
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
   line-height: 1.3;
   z-index: 1;
   background-color: #333333;
@@ -108,8 +109,7 @@ $btn_and_season_descrip_text_size: clamp(0.7rem, 1.5vw, 1.2rem);
 
 .main-descrip-block__part__ratings-and-socials {
   display: flex;
-  gap: 0.5rem;
-  width: 100%;
+  gap: 1rem;
   justify-content: space-between;
   margin-top: auto;
 }
@@ -177,4 +177,126 @@ $btn_and_season_descrip_text_size: clamp(0.7rem, 1.5vw, 1.2rem);
 
 .socials-label:hover {
   scale: 1.2;
+}
+
+/* ---------------------------------- ЭКРАН 1024px ----------------------------------- */
+/* ----------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .part-one,
+  .part-three {
+    flex-basis: 50%;
+  }
+
+  .part-two {
+    display: none;
+  }
+
+  .elem-background-style-wrapper {
+    z-index: 1;
+  }
+
+  .main-descrip-block__part__label {
+    left: 90px;
+    top: 20px;
+    font-size: clamp(4rem, 8vw, 15rem);
+  }
+
+  .main-descrip-block__part__ratings-and-socials {
+    flex-direction: column;
+  }
+
+  .ratings-and-socials__ratings {
+    font-size: clamp(0.7rem, 1.5vw, 1.2rem);
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .ratings-and-socials__socials {
+    justify-content: flex-end;
+  }
+
+  .socials-label {
+    font-size: 2rem;
+  }
+}
+
+/* ---------------------------------- ЭКРАН 768px ----------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .main-descrip-block__part__img-one {
+    left: -25px;
+  }
+
+  .aot-site__main__section-wrapper {
+    padding: 0.5rem;
+  }
+}
+
+/* ---------------------------------- ЭКРАН 600px ----------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+  .aot-site__main__descrip-block {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .main-descrip-block__part {
+    align-items: flex-start;
+  }
+
+  .main-descrip-block__part__title {
+    width: 40%;
+  }
+
+  .main-descrip-block__part__img-one {
+    width: 70%;
+  }
+
+  .part-three {
+    flex-direction: row;
+  }
+
+  .elem-background-style-wrapper {
+    margin-top: 1.5rem;
+    background: linear-gradient(
+      315deg,
+      #333333 25%,
+      #666666 25%,
+      #666666 50%,
+      #333333 50%,
+      #333333 75%,
+      #666666 75%,
+      #666666 100%
+    );
+  }
+
+  .ratings-and-socials__ratings,
+  .ratings-and-socials__socials {
+    justify-content: flex-start;
+  }
+
+  .main-descrip-block__part__label {
+    position: static;
+    white-space: nowrap;
+    margin: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .main-descrip-block__part__label {
+    display: none;
+  }
+  .main-descrip-block__part__ratings-and-socials {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .ratings-and-socials__ratings {
+    gap: 1rem;
+  }
 }

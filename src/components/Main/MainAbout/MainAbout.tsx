@@ -10,7 +10,7 @@ const AboutMain = () => {
       <section className="aot-site__main__about-block main-about-block">
         <div className="main-about-block__title-row">
           <h2 className="main-about-block__title-row__title">О сериале</h2>
-          <p>Атака титанов выдающееся аниме, заслужившее множество наград</p>
+          <p>"Атака титанов" выдающееся аниме, заслужившее множество наград.</p>
         </div>
 
         <div className="main-about-block__content-row main-about-content-row">

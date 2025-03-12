@@ -15,15 +15,15 @@ $descrip_text_size: clamp(0.7rem, 1.5vw, 1rem);
   border-radius: 0.5rem;
   box-shadow: $component_and_card_shadow;
   color: #e5e5e5;
-  min-height: 658px;
 }
 
 .aot-site__characters__title {
   text-align: left;
   width: 100%;
-  padding: 0 0 1rem 1rem;
+  padding-bottom: 1rem;
   border-bottom: 3px solid rgba(128, 128, 128, 0.2);
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
 }
 
 .aot-characters-container__filter {
@@ -36,6 +36,7 @@ $descrip_text_size: clamp(0.7rem, 1.5vw, 1rem);
 
 .characters-filter__name {
   width: 30%;
+  min-width: 185px;
   padding: 0.5rem;
   outline: none;
   font-size: $descrip_text_size;
@@ -65,7 +66,7 @@ $descrip_text_size: clamp(0.7rem, 1.5vw, 1rem);
 
 .aot-characters-container__list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   gap: 2rem;
   margin-top: 2rem;
@@ -114,6 +115,7 @@ $descrip_text_size: clamp(0.7rem, 1.5vw, 1rem);
   font-size: 1.8rem;
   color: green;
   transition: scale 0.5s;
+  font-size: clamp(1.5rem, 2vw, 1.9rem);
 }
 
 .character-card__inner__heading__label:hover {
@@ -154,7 +156,7 @@ $descrip_text_size: clamp(0.7rem, 1.5vw, 1rem);
     #666666 75%,
     #666666 100%
   );
-  margin: auto;
+  margin: 3rem auto;
 }
 
 .characters-list__empty-card__inner {
@@ -196,6 +198,12 @@ $descrip_text_size: clamp(0.7rem, 1.5vw, 1rem);
   background-color: gray;
 }
 
+@media (max-width: 1600px) {
+  .aot-characters-container__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 1280px) {
   .aot-characters-container__list {
     grid-template-columns: repeat(2, 1fr);
@@ -203,5 +211,32 @@ $descrip_text_size: clamp(0.7rem, 1.5vw, 1rem);
 
   .characters-list__empty-card {
     width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .aot-characters-container__filter {
+    flex-wrap: wrap;
+  }
+
+  .characters-list__card {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .aot-characters-container__list {
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+  }
+
+  .characters-list__card {
+    width: 80%;
+  }
+}
+
+@media (max-width: 450px) {
+  .characters-list__card {
+    width: 100%;
   }
 }

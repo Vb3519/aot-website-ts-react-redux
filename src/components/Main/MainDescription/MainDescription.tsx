@@ -25,12 +25,13 @@ const DescriptionMain = () => {
 
           <div className="elem-background-style-wrapper">
             <p className="main-descrip-block__part__description">
-              Мир, в котором гигантские титаны угрожают человечеству. Чтобы
-              выжить, люди скрываются за высокими стенами. Но когда титаны
-              нарушают этот последний рубеж, группа смельчаков отправляется в
-              опасное путешествие, чтобы разгадать их тайну и спасти мир. «Атака
-              Титанов» — захватывающее приключение, полное борьбы, тайн и
-              неожиданных поворотов!
+              В мире, где гигантские титаны угрожают человечеству, чтобы выжить,
+              люди скрываются за непреодолимыми стенами. Но когда эта преграда
+              рушится, отряд отважных героев отправляется в опасное путешествие.
+              Их цель — раскрыть тайну этих чудовищ и найти способ спасти мир,
+              стоящий на грани уничтожения. «Атака титанов» — это эпическая и
+              жестокая история, полная сражений, тайн и непредсказуемых сюжетных
+              поворотов.
             </p>
           </div>
         </div>
@@ -41,7 +42,6 @@ const DescriptionMain = () => {
           ></img>
         </div>
         <div className="main-descrip-block__part part-three">
-          <span className="main-descrip-block__part__label">知恵</span>
           <div className="main-descrip-block__part__ratings-and-socials ratings-and-socials">
             <ul className="ratings-and-socials__ratings">
               <li className="ratings-and-socials__ratings__elem ratings-elem">
@@ -74,6 +74,7 @@ const DescriptionMain = () => {
               </a>
             </div>
           </div>
+          <span className="main-descrip-block__part__label">知恵</span>
         </div>
       </section>
     </div>

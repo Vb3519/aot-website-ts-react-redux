@@ -13,6 +13,7 @@ $main_background_color: #333333;
   background-color: $main_background_color;
   padding: 1rem;
   border-radius: 1rem;
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
 }
 
 .main-about-block__title-row {
@@ -25,6 +26,7 @@ $main_background_color: #333333;
 
 .main-about-block__title-row__title {
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
 }
 
 .main-about-block__content-row {
@@ -50,6 +52,12 @@ $main_background_color: #333333;
   border-left: 3px solid rgba(128, 128, 128, 0.2);
 }
 
+.main-about-content-row__details li:nth-child(2),
+.main-about-content-row__details li:nth-child(4) {
+  padding-left: 1rem;
+  border-left: 3px solid rgba(128, 128, 128, 0.2);
+}
+
 .about-details__elem {
   display: flex;
   flex-direction: column;
@@ -62,6 +70,7 @@ $main_background_color: #333333;
 .about-details__elem__main-title {
   font-size: clamp(1rem, 2vw, 2rem);
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
 }
 
 .about-details__elem__sub-title {
@@ -77,4 +86,53 @@ $main_background_color: #333333;
 
 .main-about-content-row__label > img {
   width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .main-about-block__content-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .main-about-content-row__creators {
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid rgba(128, 128, 128, 0.2);
+  }
+
+  .main-about-content-row__details {
+    padding: 0;
+    border: none;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid rgba(128, 128, 128, 0.2);
+  }
+
+  // .main-about-content-row__details li:nth-child(2),
+  // .main-about-content-row__details li:nth-child(4) {
+  //   padding-left: 1rem;
+  //   border-left: 3px solid rgba(128, 128, 128, 0.2);
+  // }
+
+  .main-about-content-row__label {
+    margin: auto;
+  }
+
+  .main-about-content-row__label > img {
+    width: 60%;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-about-content-row__details {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .main-about-content-row__details li:nth-child(2),
+  .main-about-content-row__details li:nth-child(3),
+  .main-about-content-row__details li:nth-child(4) {
+    padding: 0;
+    border: none;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(128, 128, 128, 0.2);
+  }
 }

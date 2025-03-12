@@ -9,7 +9,11 @@ const Footer = () => {
     <div className="aot-site__footer aot-footer">
       <div className="aot-footer__logo">
         <NavLink to=".">
-          <img className="aot-footer__logo__img" src={scoutLabelImage}></img>
+          <img
+            className="aot-footer__logo__img"
+            src={scoutLabelImage}
+            title="На главную"
+          ></img>
         </NavLink>
       </div>
 

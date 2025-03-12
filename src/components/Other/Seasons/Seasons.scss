@@ -29,9 +29,10 @@ $wrapper_background_color: linear-gradient(
 .aot-site__seasons__title {
   text-align: left;
   width: 100%;
-  padding: 0 0 1rem 1rem;
+  padding-bottom: 1rem;
   border-bottom: 3px solid rgba(128, 128, 128, 0.2);
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
 }
 
 .aot-site__seasons__list {
@@ -101,5 +102,11 @@ $wrapper_background_color: linear-gradient(
   .aot-seasons-list__elem,
   .aot-seasons-list__description {
     flex-basis: 100%;
+  }
+}
+
+@media (max-width: 650px) {
+  .aot-site__seasons__list {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

@@ -11,7 +11,9 @@ const SeasonsMain = () => {
     <section className="aot-site__main__seasons-block main-seasons-block">
       <div className="main-seasons-block__title-row">
         <h2 className="main-seasons-block__title-row__title">Сезоны</h2>
-        <a className="main-seasons-block__title-row__button">Подробнее</a>
+        <NavLink to="seasons" className="main-seasons-block__title-row__button">
+          Подробнее
+        </NavLink>
       </div>
       <div className="main-seasons-block__swiper main-seasons-swiper">
         <div className="main-seasons-swiper__inner seasons-swiper-inner">

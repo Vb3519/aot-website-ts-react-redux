@@ -15,19 +15,20 @@ $descrip_text_size: clamp(0.7rem, 1.5vw, 1rem);
 
 .aot-site__store {
   @include center_column_flex;
+  flex-basis: 80%;
   margin: 2rem 0;
   padding: 1rem;
   background-color: #333333;
   border-radius: 0.5rem;
   box-shadow: $component_and_card_shadow;
   color: #e5e5e5;
-  min-height: 658px;
 }
 
 .aot-site__store__title {
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
   text-align: left;
   width: 100%;
-  padding: 0 0 1rem 1rem;
+  padding-bottom: 1rem;
   border-bottom: 3px solid rgba(128, 128, 128, 0.2);
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
 }
@@ -44,12 +45,12 @@ $descrip_text_size: clamp(0.7rem, 1.5vw, 1rem);
   flex-direction: column;
   flex-basis: 20%;
   gap: 1rem;
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
 }
 
 .store-inner__filter__product-name {
   padding: 0.5rem;
   outline: none;
-  font-size: clamp(0.7rem, 1.5vw, 1rem);
 }
 
 .store-inner__filter__favourite-products {
@@ -102,7 +103,6 @@ $descrip_text_size: clamp(0.7rem, 1.5vw, 1rem);
 .store-inner__filter__reset-btn {
   padding: 0.5rem;
   cursor: pointer;
-  font-size: clamp(0.7rem, 1.5vw, 1rem);
 }
 
 .store-inner__products {
@@ -218,9 +218,48 @@ $descrip_text_size: clamp(0.7rem, 1.5vw, 1rem);
 }
 
 @media (max-width: 1024px) {
-  .store-inner__products__list {
+  .aot-site__store__inner {
+    flex-direction: column;
+  }
+
+  .store-inner__filter {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .store-inner__products__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .store-inner__filter {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .store-products-list__card {
+    max-width: 230px;
+  }
+}
+
+@media (max-width: 630px) {
+  .store-inner__products__list {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .store-inner__filter {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .store-inner__products__list {
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
   }
 }
