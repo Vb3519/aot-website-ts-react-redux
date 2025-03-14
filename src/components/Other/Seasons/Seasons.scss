@@ -109,4 +109,14 @@ $wrapper_background_color: linear-gradient(
   .aot-site__seasons__list {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .aot-site__seasons__list a:nth-child(2),
+  .aot-site__seasons__list a:nth-child(3),
+  .aot-site__seasons__list a:nth-child(4) {
+    padding: 0;
+    border: none;
+
+    padding-top: 1rem;
+    border-top: 3px solid rgba(128, 128, 128, 0.2);
+  }
 }
